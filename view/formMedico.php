@@ -1,4 +1,6 @@
 <?php
+include_once '../model/Conexao.class.php';
+include_once '../model/Medicos.class.php';
 include('../includes/navbar.php')
 ?>
 
@@ -24,7 +26,7 @@ include('../includes/navbar.php')
 
     <h1>Cadastro de médico</h1>
 
-    <form action="../controller/MedicoController.php" method="POST" name="formulario">
+    <form action="../controller/InsertMedicoController.php" method="POST" name="formulario">
 
         <div class="form-group">
             <div class="col-md-12">
