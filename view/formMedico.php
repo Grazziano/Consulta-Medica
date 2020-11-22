@@ -31,7 +31,7 @@ include('../includes/navbar.php')
         <div class="form-group">
             <div class="col-md-12">
                 <label> Nome </label>
-                <input type="text" name="nome" class="form-control" placeholder="Insira o nome do proficional" required>
+                <input type="text" name="nome" class="form-control" placeholder="Insira o nome do proficional" required autofocus>
             </div>
         </div>
 

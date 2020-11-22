@@ -1,5 +1,11 @@
 <?php
-include('../includes/navbar.php')
+include_once '../model/Conexao.class.php';
+include_once '../model/Medicos.class.php';
+include('../includes/navbar.php');
+
+$medico = new Medicos();
+$id = $_POST['id'];
+
 ?>
 
 <style>
@@ -29,7 +35,7 @@ include('../includes/navbar.php')
         <div class="form-group">
             <div class="col-md-12">
                 <label> Nome </label>
-                <input type="text" name="nome" class="form-control" placeholder="Insira o nome do proficional" required>
+                <input type="text" name="nome" class="form-control" placeholder="Insira o nome do proficional" value="<?php  ?>" required>
             </div>
         </div>
 
@@ -49,6 +55,7 @@ include('../includes/navbar.php')
 
         <div class="form-group">
             <div class="col-md-12" align="center">
+                <input type="hidden" name="id" value="<?php echo $client_info['id']; ?>">
                 <input type="submit" value="Atualizar Cadastro" class="btn btn-primary">
             </div>
         </div>
