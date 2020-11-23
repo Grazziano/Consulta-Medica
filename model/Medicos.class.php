@@ -52,4 +52,14 @@ class Medicos extends Conexao
         }
         $statement->execute();
     }
+
+    public function listMedicos($table)
+    {
+        $pdo = parent::get_instance();
+        $sql = "SELECT * FROM $table ORDER BY nome ASC";
+        $statement = $pdo->query($sql);
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
 }

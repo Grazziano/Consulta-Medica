@@ -14,5 +14,5 @@ $senha = md5($_POST['senha']);
 
 if (isset($data) && !empty($data)) {
     $medico->insertMedico($email, $nome, $senha);
-    header("Location: ../formMedico.php?client_add_success");
+    header("Location: ../index.php?client_add_success");
 }
