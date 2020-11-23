@@ -13,4 +13,25 @@ class Horario extends Conexao
         $sql->bindValue(":horario_agendado", 0);
         $sql->execute();
     }
+
+    public function listHorarios($table, $id)
+    {
+        $pdo = parent::get_instance();
+        $sql = "SELECT * FROM $table WHERE id_medico = :id ORDER BY data_horario ASC";
+        $sql = $pdo->prepare($sql);
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+        return $sql->fetchAll();
+    }
+    
+    public function reservaHorario($id)
+    {
+        $pdo = parent::get_instance();
+        $sql = "UPDATE horario SET horario_agendado = :agendado WHERE id = :id";
+        $sql = $pdo->prepare($sql);
+        $sql->bindValue(":agendado", intval(1));
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+    }
 }

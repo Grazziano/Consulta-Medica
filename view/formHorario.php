@@ -56,7 +56,7 @@ $id = $_GET['id_medico'];
                 <form action="../controller/InsertHorarioController.php" method="post">
                     <div class="form-group">
                         <label for="">Data e Hora</label>
-                        <input type="text" class="form-control" placeholder="dd-mm-yyyy       hh:mm" name="dataHora" id="dataHora">
+                        <input type="text" class="form-control" placeholder="dd-mm-yyyy       hh:mm" name="dataHora" id="dataHora" autofocus>
                     </div>
 
                     <div class="form-group">
