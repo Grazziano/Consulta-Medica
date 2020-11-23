@@ -36,7 +36,7 @@ $horarios = new Horario();
         .container .row h1 {
             font-family: 'Signika', sans-serif;
             font-size: 20px;
-            color: #0094cf;
+            color: #004768;
             margin-top: 10px;
         }
 
@@ -52,12 +52,14 @@ $horarios = new Horario();
             margin-top: 10px;
             margin-bottom: 10px;
         }
+
         .btn-primary {
             margin-right: 5px;
             margin-bottom: 5px;
             font-size: 12px;
             font-family: 'Signika', sans-serif;
         }
+
     </style>
     <?php foreach ($medicos->listMedicos("medico") as $medico) : ?>
         <div class="container">
@@ -81,16 +83,16 @@ $horarios = new Horario();
 
                     <?php
                     foreach ($horarios->listHorarios("horario", intval($medico['id'])) as $time) :
-                        if($time['horario_agendado'] == 0):
+                        if ($time['horario_agendado'] == 0) :
                     ?>
-                        <div class="col-md-3">
-                            <form action="controller/reservarHorarioController.php" method="post">
-                                <!-- <div class="alert alert-primary text-light" role="alert"> -->
-                                <input type="hidden" name="id" value="<?php echo $time['id']; ?>">
-                                <input type="submit" class="btn btn-primary btn-sm" value="<?php echo (date("d/m/Y", strtotime($time['data_horario'])) . " às " . date("H:m", strtotime($time['data_horario']))); ?>">
-                                <!-- </div> -->
-                            </form>
-                        </div>
+                            <div class="col-md-3">
+                                <form action="controller/reservarHorarioController.php" method="post">
+                                    <!-- <div class="alert alert-primary text-light" role="alert"> -->
+                                    <input type="hidden" name="id" value="<?php echo $time['id']; ?>">
+                                    <input type="submit" class="btn btn-primary btn-lg" value="<?php echo (date("d/m/Y", strtotime($time['data_horario'])) . " às " . date("H:i", strtotime($time['data_horario']))); ?>">
+                                    <!-- </div> -->
+                                </form>
+                            </div>
                     <?php
                         endif;
                     endforeach;

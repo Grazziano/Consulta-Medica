@@ -18,7 +18,7 @@ $id = $_GET['id_medico'];
 
     h1,
     label {
-        color: #0094cf;
+        color: #004768;
         font-family: 'Signika', sans-serif;
     }
 
@@ -30,7 +30,7 @@ $id = $_GET['id_medico'];
     h2 {
         font-family: 'Signika', sans-serif;
         /* font-size: 18px; */
-        color: #0099CF;
+        color: #004768;
         margin-left: 10px;
     }
 

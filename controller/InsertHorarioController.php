@@ -8,15 +8,20 @@ $data = $_POST;
 $data_hora = $_POST['dataHora'];
 $id_medico = $_POST['id_medico'];
 $novaString = str_replace(" ", "", $data_hora);
-$data = substr($novaString, 0, 10);
-$data = date("Y-m-d", strtotime($data));
-$hora = substr($novaString, 10, 14);
-// var_dump($data);
-// var_dump($hora);
+// echo "data = " . $novaString;
+// echo "<br>";
 // exit;
-$data_horario = $data . " " . $hora;
+$dia = substr($novaString, 0, 2);
+$mes = substr($novaString, 3, -10);
+$ano = substr($novaString, 6, -5);
+$hora = substr($novaString, 10, -3);
+$minuto = substr($novaString, 13);
+
+$novaData = $ano . "-" . $mes . "-" . $dia . " " . $hora . ":" . $minuto . ":00";
+// echo $novaData;
+// exit;
 
 if (isset($data) && !empty($data)) {
-    $horario->insertHorario($id_medico, $data_horario);
+    $horario->insertHorario($id_medico, $novaData);
     header("Location: ../index.php?time_add_success");
 }
