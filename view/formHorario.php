@@ -1,9 +1,11 @@
 <?php
 include_once '../model/Conexao.class.php';
 include_once '../model/Medicos.class.php';
+include_once '../model/Horario.class.php';
 
 include('../includes/navbar.php');
 $medicos = new Medicos();
+$horarios = new Horario();
 
 $id = $_GET['id_medico'];
 
@@ -36,7 +38,7 @@ $id = $_GET['id_medico'];
 
     .btn-link {
         color: red;
-        margin-left: 12em;
+        margin-left: 390%;
     }
 
     .btn-lg {
@@ -51,12 +53,12 @@ $id = $_GET['id_medico'];
                 <h1>Adicionar horários</h1>
 
                 <h4>Nome:</h4>
-                <h2>TESTE</h2>
+                <h2><?php echo "Teste"; ?></h2>
 
                 <form action="../controller/InsertHorarioController.php" method="post">
                     <div class="form-group">
                         <label for="">Data e Hora</label>
-                        <input type="text" class="form-control" placeholder="dd-mm-yyyy       hh:mm" name="dataHora" id="dataHora" autofocus>
+                        <input type="text" class="form-control" placeholder="dd-mm-yyyy       hh:mm" name="dataHora" id="dataHora" required autofocus>
                     </div>
 
                     <div class="form-group">
@@ -83,16 +85,21 @@ $id = $_GET['id_medico'];
                 <h1>Horários configurados</h1>
                 <br>
 
-                <div class="row">
-                    <h4>16/11/2020 07:00</h4>
+                <?php foreach($horarios->listHorarios("horario", $id) as $horario): ?>
+                    <div class="row">
+                        
+                        <h4 style="font-size: 18px;"><?php echo date("d/m/Y H:i", strtotime($horario['data_horario'])); ?></h4>
 
-                    <form action="" method="post">
-                        <input type="submit" class="btn btn-link" value="Remover">
-                    </form>
+                        <?php if($horario['horario_agendado'] == 0): ?>
+                            <form action="../controller/DeleteHorario.php" method="post">
+                                <input type="hidden" name="id_horario" value="<?php echo $horario["id"]; ?>">
+                                <input type="submit" class="btn btn-link" value="Remover">
+                            </form>
+                        <?php endif; ?>
 
-                </div>
-
-                <hr>
+                    </div>
+                    <hr>
+                <?php endforeach; ?>
 
             </div>
         </div>

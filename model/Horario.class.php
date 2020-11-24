@@ -24,7 +24,7 @@ class Horario extends Conexao
 
         return $sql->fetchAll();
     }
-    
+
     public function reservaHorario($id)
     {
         $pdo = parent::get_instance();
@@ -33,5 +33,19 @@ class Horario extends Conexao
         $sql->bindValue(":agendado", intval(1));
         $sql->bindValue(":id", $id);
         $sql->execute();
+    }
+
+    public function deleteHorario($id_horario)
+    {
+        try {
+            $pdo = parent::get_instance();
+            $sql = $pdo->prepare('DELETE FROM horario WHERE id = :id');
+            $sql->bindParam(':id', $id_horario);
+            $sql->execute();
+
+            echo $sql->rowCount();
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
     }
 }
