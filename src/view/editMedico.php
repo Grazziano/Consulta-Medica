@@ -6,7 +6,13 @@ include_once '../model/Medicos.class.php';
 include('../../includes/navbar.php');
 
 $medico = new Medicos();
-$id = $_POST['id'];
+$id = $_GET['id_medico'];
+
+$nome = "";
+
+foreach($medico->getMedico("medico", $id) as $m){
+$nome = $m[2];
+}
 
 ?>
 
@@ -32,12 +38,12 @@ $id = $_POST['id'];
 
     <h1>Editar médico</h1>
 
-    <form action="../controller/MedicoController.php" method="POST" name="formulario">
+    <form action="../controller/EditMedicoController.php" method="POST" name="formulario">
 
         <div class="form-group">
             <div class="col-md-12">
                 <label> Nome </label>
-                <input type="text" name="nome" class="form-control" placeholder="Insira o nome do proficional" value="<?php  ?>" required>
+                <input type="text" name="nome" class="form-control" placeholder="Insira o nome do proficional" value="<?php echo $nome; ?>" required autofocus>
             </div>
         </div>
 
@@ -51,13 +57,13 @@ $id = $_POST['id'];
         <div class="form-group">
             <div class="col-md-12">
                 <label> Nova Senha </label>
-                <input type="password" name="senha" class="form-control" placeholder="Insira uma nova senha forte e segura" required>
+                <input type="password" name="newSenha" class="form-control" placeholder="Insira uma nova senha forte e segura" required>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-12" align="center">
-                <input type="hidden" name="id" value="<?php echo $client_info['id']; ?>">
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <input type="submit" value="Atualizar Cadastro" class="btn btn-primary">
             </div>
         </div>

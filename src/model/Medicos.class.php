@@ -34,23 +34,15 @@ class Medicos extends Conexao
     /**
      * Método para editar um médico
      */
-    public function updateMedico($table, $data, $id)
+    public function updateMedico($table, $nome, $pass, $id)
     {
         $pdo = parent::get_instance();
-        $newValues = "";
-
-        foreach ($data as $key => $value) {
-            $newValues .= "$key=:$key, ";
-        }
-        $newValues = substr($newValues, 0, -2);
-
-        $sql = "UPDATE $table SET $newValues WHERE id = :id";
-        $statement = $pdo->prepare($sql);
-
-        foreach ($data as $key => $value) {
-            $statement->bindValue(":$key", $value, PDO::PARAM_STR);
-        }
-        $statement->execute();
+        $sql = "UPDATE $table SET nome = :nome, senha = :senha WHERE id = :id";
+        $sql = $pdo->prepare($sql);
+        $sql->bindValue(":nome", $nome);
+        $sql->bindValue(":senha", $pass);
+        $sql->bindValue(":id", $id);
+        $sql->execute();
     }
 
     public function listMedicos($table)

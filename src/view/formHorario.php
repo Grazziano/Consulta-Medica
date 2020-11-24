@@ -9,7 +9,12 @@ include('../../includes/navbar.php');
 $medicos = new Medicos();
 $horarios = new Horario();
 
+$nomeMedico = "";
 $id = $_GET['id_medico'];
+
+foreach ($medicos->getMedico("medico", $id) as $m) {
+    $nomeMedico = $m[2];
+}
 
 ?>
 
@@ -55,7 +60,7 @@ $id = $_GET['id_medico'];
                 <h1>Adicionar horários</h1>
 
                 <h4>Nome:</h4>
-                <h2><?php echo "Teste"; ?></h2>
+                <h2><?php echo $nomeMedico; ?></h2>
 
                 <form action="../controller/InsertHorarioController.php" method="post">
                     <div class="form-group">
