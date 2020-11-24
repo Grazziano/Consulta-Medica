@@ -11,5 +11,5 @@ $id = $_POST['id_horario_reservado'];
 
 if (isset($id) && !empty($id)) {
     $horario->reservaHorario("horario", $id);
-    header("Location: ../index.php");
+    header("Location: ../../index.php");
 }

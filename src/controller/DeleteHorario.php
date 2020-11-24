@@ -10,5 +10,5 @@ $id_horario = intval($_POST['id_horario']);
 
 if (isset($id_horario) && !empty($id_horario)) {
     $horario->deleteHorario($id_horario);
-    header("Location: ../index.php?delete_success");
+    header("Location: ../../index.php?delete_success");
 }

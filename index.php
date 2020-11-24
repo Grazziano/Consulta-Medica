@@ -1,7 +1,7 @@
 <?php
-include_once 'model/Conexao.class.php';
-include_once 'model/Medicos.class.php';
-include_once 'model/Horario.class.php';
+include_once 'src/model/Conexao.class.php';
+include_once 'src/model/Medicos.class.php';
+include_once 'src/model/Horario.class.php';
 
 $medicos = new Medicos();
 $horarios = new Horario();
@@ -19,48 +19,49 @@ $horarios = new Horario();
     <link href="https://fonts.googleapis.com/css2?family=Signika:wght@600&display=swap" rel="stylesheet">
 </head>
 
+<style>
+    .container {
+        background: #ffffff;
+        width: 50%;
+        margin-bottom: 20px;
+    }
+
+    .container .row h1 {
+        font-family: 'Signika', sans-serif;
+        font-size: 20px;
+        color: #004768;
+        margin-top: 10px;
+    }
+
+    .text-light {
+        font-family: 'Signika', sans-serif;
+        text-align: center;
+        font-size: 9px;
+        background: #0094cf;
+    }
+
+    .btn-outline-primary {
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .btn-primary {
+        margin-right: 5px;
+        margin-bottom: 5px;
+        font-size: 12px;
+        font-family: 'Signika', sans-serif;
+    }
+</style>
+
 <body style="background-color: #dcdcdc;">
 
     <nav class="navbar">
         <div class="col-lg-12" style="text-align: right;">
-            <a class="navbar-brand btn btn-light" href="view/formMedico.php">Cadastro de médico</a>
+            <a class="navbar-brand btn btn-light" href="src/view/formMedico.php">Cadastro de médico</a>
         </div>
     </nav>
-    <style>
-        .container {
-            background: #ffffff;
-            width: 50%;
-            margin-bottom: 20px;
-        }
 
-        .container .row h1 {
-            font-family: 'Signika', sans-serif;
-            font-size: 20px;
-            color: #004768;
-            margin-top: 10px;
-        }
-
-        .text-light {
-            font-family: 'Signika', sans-serif;
-            text-align: center;
-            font-size: 9px;
-            background: #0094cf;
-        }
-
-        .btn-outline-primary {
-            font-size: 12px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        .btn-primary {
-            margin-right: 5px;
-            margin-bottom: 5px;
-            font-size: 12px;
-            font-family: 'Signika', sans-serif;
-        }
-
-    </style>
     <?php foreach ($medicos->listMedicos("medico") as $medico) : ?>
         <div class="container">
             <div class="col-md-10 offset-md-1">
@@ -70,11 +71,10 @@ $horarios = new Horario();
                         <h1><?php echo $medico['nome']; ?></h1>
                     </div>
                     <div class="col-md-3">
-                        <a class="btn btn-outline-primary btn-sm" href="view/editMedico.php?id_medico=<?php echo $medico['id']; ?>">Editar Cadastro</a>
+                        <a class="btn btn-outline-primary btn-sm" href="src/view/editMedico.php?id_medico=<?php echo $medico['id']; ?>">Editar Cadastro</a>
                     </div>
                     <div class="col-md-3">
-                        <a class="btn btn-outline-primary btn-sm" href="view/formHorario.php?id_medico=<?php echo $medico['id']; ?>">Configurar Horários</a>
-                        <!-- <a class="btn btn-outline-primary btn-sm" href="controller/ListHorarioController.php?id_medico=<?php echo $medico['id']; ?>">Configurar Horários</a> -->
+                        <a class="btn btn-outline-primary btn-sm" href="src/view/formHorario.php?id_medico=<?php echo $medico['id']; ?>">Configurar Horários</a>
                     </div>
                 </div>
 
@@ -86,11 +86,9 @@ $horarios = new Horario();
                         if ($time['horario_agendado'] == 0) :
                     ?>
                             <div class="col-md-3">
-                                <form action="controller/reservarHorarioController.php" method="post">
-                                    <!-- <div class="alert alert-primary text-light" role="alert"> -->
+                                <form action="src/controller/reservarHorarioController.php" method="post">
                                     <input type="hidden" name="id_horario_reservado" value="<?php echo $time['id']; ?>">
                                     <input type="submit" class="btn btn-primary btn-lg" value="<?php echo (date("d/m/Y", strtotime($time['data_horario'])) . " às " . date("H:i", strtotime($time['data_horario']))); ?>">
-                                    <!-- </div> -->
                                 </form>
                             </div>
                     <?php

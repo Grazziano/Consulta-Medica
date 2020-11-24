@@ -1,7 +1,9 @@
 <?php
+$caminhoCss = '../../';
+$caminho = '../';
 include_once '../model/Conexao.class.php';
 include_once '../model/Medicos.class.php';
-include('../includes/navbar.php')
+include('../../includes/navbar.php');
 ?>
 
 <style>
@@ -57,7 +59,7 @@ include('../includes/navbar.php')
 
         <div class="form-group">
             <div class="col-md-12 margin" align="center">
-                <a href="../index.php">Voltar para a página inicial</a>
+                <a href="../../index.php">Voltar para a página inicial</a>
             </div>
         </div>
 
@@ -65,5 +67,5 @@ include('../includes/navbar.php')
 </div>
 
 <?php
-include('../includes/footer.php')
+include('../../includes/footer.php')
 ?>

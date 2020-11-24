@@ -10,5 +10,5 @@ $id = $_POST['id'];
 if (isset($id) && !empty($id)) {
     $medico->updateMedico("registros", $update_client, $id);
 
-    header("Location: ../index.php?client_update");
+    header("Location: ../../index.php?client_update");
 }

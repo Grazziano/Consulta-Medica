@@ -1,7 +1,9 @@
 <?php
+$caminhoCss = '../../';
+$caminho = '../';
 include_once '../model/Conexao.class.php';
 include_once '../model/Medicos.class.php';
-include('../includes/navbar.php');
+include('../../includes/navbar.php');
 
 $medico = new Medicos();
 $id = $_POST['id'];
@@ -62,7 +64,7 @@ $id = $_POST['id'];
 
         <div class="form-group">
             <div class="col-md-12 margin" align="center">
-                <a href="../index.php">Voltar para a página inicial</a>
+                <a href="../../index.php">Voltar para a página inicial</a>
             </div>
         </div>
 
@@ -70,5 +72,5 @@ $id = $_POST['id'];
 </div>
 
 <?php
-include('../includes/footer.php')
+include('../../includes/footer.php')
 ?>

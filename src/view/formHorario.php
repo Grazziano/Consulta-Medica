@@ -1,9 +1,11 @@
 <?php
+$caminhoCss = '../../';
+$caminho = '../';
 include_once '../model/Conexao.class.php';
 include_once '../model/Medicos.class.php';
 include_once '../model/Horario.class.php';
 
-include('../includes/navbar.php');
+include('../../includes/navbar.php');
 $medicos = new Medicos();
 $horarios = new Horario();
 
@@ -71,7 +73,7 @@ $id = $_GET['id_medico'];
 
                 <div class="form-group">
                     <div class="col-md-12 margin" align="center">
-                        <a href="../index.php">Voltar para a página inicial</a>
+                        <a href="../../index.php">Voltar para a página inicial</a>
                     </div>
                 </div>
 
@@ -85,15 +87,15 @@ $id = $_GET['id_medico'];
                 <h1>Horários configurados</h1>
                 <br>
 
-                <?php foreach($horarios->listHorarios("horario", $id) as $horario): ?>
+                <?php foreach ($horarios->listHorarios("horario", $id) as $horario) : ?>
                     <div class="row">
-                        
+
                         <h4 style="font-size: 18px;"><?php echo date("d/m/Y H:i", strtotime($horario['data_horario'])); ?></h4>
 
-                        <?php if($horario['horario_agendado'] == 0): ?>
+                        <?php if ($horario['horario_agendado'] == 0) : ?>
                             <form action="../controller/DeleteHorario.php" method="post">
                                 <input type="hidden" name="id_horario" value="<?php echo $horario["id"]; ?>">
-                                <input type="submit" class="btn btn-link" value="Remover">
+                                <input type="submit" class="btn btn-link" onclick="return confirm('Tem certeza que deseja deletar este registro?')" value="Remover">
                             </form>
                         <?php endif; ?>
 
@@ -107,7 +109,7 @@ $id = $_GET['id_medico'];
 </div>
 
 <?php
-include('../includes/footer.php')
+include('../../includes/footer.php')
 ?>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
