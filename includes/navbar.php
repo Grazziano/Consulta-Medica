@@ -15,6 +15,6 @@
 
     <nav class="navbar">
         <div class="col-lg-12" style="text-align: right;">
-            <a class="navbar-brand btn btn-light" href="<?php echo $caminho; ?>view/formMedico.php">Cadastro de médico</a>
+            <a class="navbar-brand btn btn-light" style="color: #0094cf;" href="<?php echo $caminho; ?>view/formMedico.php">Cadastro de médico</a>
         </div>
     </nav>

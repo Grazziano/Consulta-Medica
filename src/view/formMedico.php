@@ -5,24 +5,7 @@ include_once '../model/Conexao.class.php';
 include_once '../model/Medicos.class.php';
 include('../../includes/navbar.php');
 ?>
-
-<style>
-    .container {
-        background: #ffffff;
-        width: 30%;
-        margin-bottom: 20px;
-    }
-
-    h1,
-    label {
-        color: #0094cf;
-        font-family: 'Signika', sans-serif;
-    }
-
-    .margin {
-        margin-bottom: 10px;
-    }
-</style>
+<link rel="stylesheet" href="../../css/form.css">
 
 <div class="container">
 

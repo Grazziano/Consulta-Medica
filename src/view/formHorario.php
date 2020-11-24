@@ -15,43 +15,9 @@ $id = $_GET['id_medico'];
 foreach ($medicos->getMedico("medico", $id) as $m) {
     $nomeMedico = $m[2];
 }
-
 ?>
 
-<style>
-    .container {
-        background: #ffffff;
-        width: 40%;
-        margin-bottom: 20px;
-    }
-
-    h1,
-    label {
-        color: #004768;
-        font-family: 'Signika', sans-serif;
-    }
-
-    .margin {
-        margin-bottom: 10px;
-    }
-
-    h4,
-    h2 {
-        font-family: 'Signika', sans-serif;
-        /* font-size: 18px; */
-        color: #004768;
-        margin-left: 10px;
-    }
-
-    .btn-link {
-        color: red;
-        margin-left: 390%;
-    }
-
-    .btn-lg {
-        margin-top: 10px;
-    }
-</style>
+<link rel="stylesheet" href="../../css/formHorario.css">
 
 <div class="parent-container d-flex">
     <div class="container">

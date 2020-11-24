@@ -17,48 +17,14 @@ $horarios = new Horario();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Signika:wght@600&display=swap" rel="stylesheet">
+    <link href="css/containers.css" rel="stylesheet" type="text/css">
 </head>
-
-<style>
-    .container {
-        background: #ffffff;
-        width: 50%;
-        margin-bottom: 20px;
-    }
-
-    .container .row h1 {
-        font-family: 'Signika', sans-serif;
-        font-size: 20px;
-        color: #004768;
-        margin-top: 10px;
-    }
-
-    .text-light {
-        font-family: 'Signika', sans-serif;
-        text-align: center;
-        font-size: 9px;
-        background: #0094cf;
-    }
-
-    .btn-outline-primary {
-        font-size: 12px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    .btn-primary {
-        margin-right: 5px;
-        margin-bottom: 5px;
-        font-size: 12px;
-        font-family: 'Signika', sans-serif;
-    }
-</style>
 
 <body style="background-color: #dcdcdc;">
 
     <nav class="navbar">
         <div class="col-lg-12" style="text-align: right;">
-            <a class="navbar-brand btn btn-light" href="src/view/formMedico.php">Cadastro de médico</a>
+            <a class="navbar-brand btn btn-light" style="color: #0094cf;" href="src/view/formMedico.php">Cadastro de médico</a>
         </div>
     </nav>
 

@@ -1,0 +1,33 @@
+.container {
+    background: #ffffff;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.container .row h1 {
+    font-family: 'Signika', sans-serif;
+    font-size: 20px;
+    color: #004768;
+    margin-top: 10px;
+}
+
+.text-light {
+    font-family: 'Signika', sans-serif;
+    text-align: center;
+    font-size: 9px;
+    background: #0094cf;
+}
+
+.btn-outline-primary {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    margin-right: 5px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-family: 'Signika', sans-serif;
+    background-color: #0094cf;
+}
