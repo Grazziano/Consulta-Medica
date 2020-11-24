@@ -88,7 +88,7 @@ $horarios = new Horario();
                             <div class="col-md-3">
                                 <form action="controller/reservarHorarioController.php" method="post">
                                     <!-- <div class="alert alert-primary text-light" role="alert"> -->
-                                    <input type="hidden" name="id" value="<?php echo $time['id']; ?>">
+                                    <input type="hidden" name="id_horario_reservado" value="<?php echo $time['id']; ?>">
                                     <input type="submit" class="btn btn-primary btn-lg" value="<?php echo (date("d/m/Y", strtotime($time['data_horario'])) . " às " . date("H:i", strtotime($time['data_horario']))); ?>">
                                     <!-- </div> -->
                                 </form>

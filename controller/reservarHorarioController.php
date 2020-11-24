@@ -4,9 +4,9 @@ include_once '../model/Horario.class.php';
 
 $horario = new Horario();
 
-$id = $_POST['id'];
+$id = $_POST['id_horario_reservado'];
 
-// var_dump($id);
+// echo(intval($id));
 // exit;
 
 if (isset($id) && !empty($id)) {

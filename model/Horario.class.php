@@ -25,10 +25,10 @@ class Horario extends Conexao
         return $sql->fetchAll();
     }
 
-    public function reservaHorario($id)
+    public function reservaHorario($table, $id)
     {
         $pdo = parent::get_instance();
-        $sql = "UPDATE horario SET horario_agendado = :agendado WHERE id = :id";
+        $sql = "UPDATE $table SET horario_agendado = :agendado WHERE id = :id";
         $sql = $pdo->prepare($sql);
         $sql->bindValue(":agendado", intval(1));
         $sql->bindValue(":id", $id);
