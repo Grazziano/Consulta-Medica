@@ -7,7 +7,7 @@ class Conexao
     public static function get_instance()
     {
         if (!isset(self::$instance)) {
-            self::$instance = new PDO("mysql:host=localhost;dbname=pegasus;", "root", "", array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+            self::$instance = new PDO("mysql:host=localhost;dbname=cadastro_medicos;", "root", "", array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
             self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         return self::$instance;

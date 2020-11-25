@@ -2,7 +2,9 @@
 Teste de Seleção para Desenvolvedor Junior
 
 ## Como usar
-Clone ou faça um Fork desse repositorio.
+Clone esse repositorio na pasta xampp/htdocs.
+Crie um banco MySQL com o nome cadastro_medicos.
+Importe o arquivo db.sql referente ao banco de dados.
 
 ## Informações
 Foram utilizados nesse teste as seguintes tecnologias:
